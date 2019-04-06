@@ -1,47 +1,53 @@
-<h1>DotNet整洁之道命名规范</h1>
-<h3>避免使用不正确的命名</h3>
-<p>一个好的名称,可以让很多程序员共同使用,这个名称需要符合它本身的含义及上下文环境.</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>int d;</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>int daySinceModification;</code>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <h1>DotNet整洁之道命名规范</h1>
+    <h3>避免使用不正确的命名</h3>
+    <p>一个好的名称,可以让很多程序员共同使用,这个名称需要符合它本身的含义及上下文环境.</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>int d;</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>int daySinceModification;</code>
 
-<h3>避免使用容易让人误解的命名</h3>
-<p>命名要符合它本身的含义</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>var dataFromDb = db.GetFromService().ToList();</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>var listOfEmployee = _employeeService.GetEmployeeListFromDb().ToList();</code>
+    <h3>避免使用容易让人误解的命名</h3>
+    <p>命名要符合它本身的含义</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>var dataFromDb = db.GetFromService().ToList();</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>var listOfEmployee = _employeeService.GetEmployeeListFromDb().ToList();</code>
 
-<h3>避免使用多余的类型前缀或后缀</h3>
-<p>IDE会自动识别类型,无需添加多余的类型信息</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>int iCounter;<br>string strFullName;<br>DateTime dModifiedDate;</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>int counter;<br>string fullName;<br>DateTime modifiedDate;</code>
+    <h3>避免使用多余的类型前缀或后缀</h3>
+    <p>IDE会自动识别类型,无需添加多余的类型信息</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>int iCounter;<br>string strFullName;<br>DateTime dModifiedDate;</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>int counter;<br>string fullName;<br>DateTime modifiedDate;</code>
 
-<h3>使用一致的大小写规范</h3>
-<p>整个团队的代码大小写命名规范要一致</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>const int DAYS_IN_WEEK = 7;<br>const int daysInMonth = 30;<br>var songs = new List<string> { 'Back In Black', 'Stairway to Heaven', 'Hey Jude' };<br>var Artists = new List<string> { 'ACDC', 'Led Zeppelin', 'The Beatles' };<br>bool EraseDatabase() {}<br>bool Restore_database() {}<br>class animal {}<br>class Alpaca {}</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>const int DaysInWeek = 7;<br>const int DaysInMonth = 30;<br>var songs = new List<string> { 'Back In Black', 'Stairway to Heaven', 'Hey Jude' };<br>var artists = new List<string> { 'ACDC', 'Led Zeppelin', 'The Beatles' };<br>bool EraseDatabase() {}<br>bool RestoreDatabase() {}<br>class Animal {}<br>class Alpaca {}</code>
+    <h3>使用一致的大小写规范</h3>
+    <p>整个团队的代码大小写命名规范要一致</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>const int DAYS_IN_WEEK = 7;<br>const int daysInMonth = 30;<br>var songs = new List<string> { 'Back In Black', 'Stairway to Heaven', 'Hey Jude' };<br>var Artists = new List<string> { 'ACDC', 'Led Zeppelin', 'The Beatles' };<br>bool EraseDatabase() {}<br>bool Restore_database() {}<br>class animal {}<br>class Alpaca {}</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>const int DaysInWeek = 7;<br>const int DaysInMonth = 30;<br>var songs = new List<string> { 'Back In Black', 'Stairway to Heaven', 'Hey Jude' };<br>var artists = new List<string> { 'ACDC', 'Led Zeppelin', 'The Beatles' };<br>bool EraseDatabase() {}<br>bool RestoreDatabase() {}<br>class Animal {}<br>class Alpaca {}</code>
 
-<h3>使用可读性高的命名</h3>
-<p>如果看一眼名称b不能马上清楚变量的含义,这就不是一个好的命名规范</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>public class Employee<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime sWorkDate { get; set; } // what the heck is this<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime modTime { get; set; } // same here<br>}</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>public class Employee<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime StartWorkingDate { get; set; }<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime ModificationTime { get; set; }<br>}</code>
+    <h3>使用可读性高的命名</h3>
+    <p>如果看一眼名称b不能马上清楚变量的含义,这就不是一个好的命名规范</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>public class Employee<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime sWorkDate { get; set; } // what the heck is this<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime modTime { get; set; } // same here<br>}</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>public class Employee<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime StartWorkingDate { get; set; }<br>&nbsp;&nbsp;&nbsp;&nbsp;public Datetime ModificationTime { get; set; }<br>}</code>
 
-<h3>使用驼峰命名法</h3>
-<p>为变量或参数命名的时候,建议使用驼峰命名法</p>
-<h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
-<code>var employeephone;<br>public double CalculateSalary(int workingdays, int workinghours)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// some logic<br>}</code>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>var employeePhone;<br>public double CalculateSalary(int workingDays, int workingHours)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// some logic<br>}</code>
+    <h3>使用驼峰命名法</h3>
+    <p>为变量或参数命名的时候,建议使用驼峰命名法</p>
+    <h5 style="background:pink; width:80px;padding:2px;">错误实例:</h5>
+    <code>var employeephone;<br>public double CalculateSalary(int workingdays, int workinghours)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// some logic<br>}</code>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>var employeePhone;<br>public double CalculateSalary(int workingDays, int workingHours)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// some logic<br>}</code>
 
-<h3>使用领域名称</h3>
-<p>使用专业的领域名称避免重复地向其他人解释变量名的含义</p>
-<h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
-<code>public class SingleObject<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// create an object of SingleObject<br>&nbsp;&nbsp;&nbsp;&nbsp;private static SingleObject _instance = new SingleObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;// make the constructor private so that this class cannot be instantiated<br>&nbsp;&nbsp;&nbsp;&nbsp;private SingleObject() {}<br>&nbsp;&nbsp;&nbsp;&nbsp;// get the only object available<br>&nbsp;&nbsp;&nbsp;&nbsp;public static SingleObject GetInstance()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return _instance;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;public string ShowMessage()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Hello World!";<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>public static void main(String[] args)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// illegal construct<br>&nbsp;&nbsp;&nbsp;&nbsp;// var object = new SingleObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;// Get the only object available<br>&nbsp;&nbsp;&nbsp;&nbsp;var singletonObject = SingleObject.GetInstance();<br>&nbsp;&nbsp;&nbsp;&nbsp;// show the message<br>&nbsp;&nbsp;&nbsp;&nbsp;singletonObject.ShowMessage();<br>}</code>
+    <h3>使用领域名称</h3>
+    <p>使用专业的领域名称避免重复地向其他人解释变量名的含义</p>
+    <h5 style="background:lightgreen; width:80px;padding:2px;">正确实例:</h5>
+    <code>public class SingleObject<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// create an object of SingleObject<br>&nbsp;&nbsp;&nbsp;&nbsp;private static SingleObject _instance = new SingleObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;// make the constructor private so that this class cannot be instantiated<br>&nbsp;&nbsp;&nbsp;&nbsp;private SingleObject() {}<br>&nbsp;&nbsp;&nbsp;&nbsp;// get the only object available<br>&nbsp;&nbsp;&nbsp;&nbsp;public static SingleObject GetInstance()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return _instance;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;public string ShowMessage()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Hello World!";<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>public static void main(String[] args)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;// illegal construct<br>&nbsp;&nbsp;&nbsp;&nbsp;// var object = new SingleObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;// Get the only object available<br>&nbsp;&nbsp;&nbsp;&nbsp;var singletonObject = SingleObject.GetInstance();<br>&nbsp;&nbsp;&nbsp;&nbsp;// show the message<br>&nbsp;&nbsp;&nbsp;&nbsp;singletonObject.ShowMessage();<br>}</code>
+</html>
